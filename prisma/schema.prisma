@@ -8,7 +8,7 @@ datasource db {
 }
 
 model Order {
-  id        String   @id
+  id        String   @id @default(uuid())
   productId String
   client    String
   address   String
@@ -17,7 +17,7 @@ model Order {
 }
 
 model Product {
-  id          String   @id
+  id          String   @id @default(uuid())
   name        String
   price       Int
   description String

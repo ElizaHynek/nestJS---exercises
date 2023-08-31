@@ -22,14 +22,6 @@ export class OrdersService {
       where: { id },
     });
   }
-/*
-	public create(
-    orderData: Omit<Order, 'id' | 'createdAt' | 'updatedAt'>,
-  ): Promise<Order> {
-    return this.prismaService.order.create({
-      data: orderData,
-    });
-  } */
 
   public create(
     orderData: Omit<Order, 'id' | 'createdAt' | 'updatedAt'>,
@@ -43,7 +35,7 @@ export class OrdersService {
         },
       }
     });
-  }
+  } 
 
   public updateById(
     id: Order['id'],

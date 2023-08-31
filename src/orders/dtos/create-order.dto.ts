@@ -4,6 +4,7 @@ import {
   IsNotEmpty,
   IsString,
   Length,
+  IsUUID,
 } from 'class-validator';
 
 export class CreateOrderDTO {
@@ -14,6 +15,7 @@ export class CreateOrderDTO {
 
   @IsNotEmpty()
   @IsString()
+  @IsUUID()
   productId: string;
 
   @Transform(({ value }) => (Array.isArray(value) ? value.join(', ') : ''))

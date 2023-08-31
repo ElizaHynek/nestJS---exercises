@@ -16,6 +16,11 @@ export class CreateOrderDTO {
   @IsNotEmpty()
   @IsString()
   @IsUUID()
+  clientId: string;
+
+  @IsNotEmpty()
+  @IsString()
+  @IsUUID()
   productId: string;
 
   @Transform(({ value }) => (Array.isArray(value) ? value.join(', ') : ''))

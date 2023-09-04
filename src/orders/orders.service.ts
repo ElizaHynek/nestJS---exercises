@@ -27,7 +27,7 @@ export class OrdersService {
   public async create(
     orderData: Omit<Order, 'id' | 'createdAt' | 'updatedAt'>,
   ): Promise<Order> {
-    const { clientId, productId, ...otherData } = orderData;
+    const { productId, clientId, ...otherData } = orderData;
     try {
       return await this.prismaService.order.create({
         data: {
@@ -45,12 +45,13 @@ export class OrdersService {
         throw new BadRequestException("Product doesn't exist");
       throw error;
     }
-  }
+  } 
+
   public updateById(
     id: Order['id'],
     orderData: Omit<Order, 'id' | 'createdAt' | 'updatedAt'>,
   ): Promise<Order> {
-    const { clientId, productId, ...otherData } = orderData;
+    const { productId, clientId, ...otherData } = orderData;
     return this.prismaService.order.update({
       where: { id },
       data: {
